@@ -1,0 +1,54 @@
+﻿@model MrSparklyMVC.Models.SalesOrder
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SalesOrder</legend>
+
+        @Html.HiddenFor(model => model.salesOrderID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerID, "Retailer")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("retailerID", String.Empty)
+            @Html.ValidationMessageFor(model => model.retailerID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.salesOrderNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.salesOrderNo)
+            @Html.ValidationMessageFor(model => model.salesOrderNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.salesOrderDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.salesOrderDate)
+            @Html.ValidationMessageFor(model => model.salesOrderDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

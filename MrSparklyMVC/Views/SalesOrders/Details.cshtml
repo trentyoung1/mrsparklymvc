@@ -1,0 +1,41 @@
+﻿@model MrSparklyMVC.Models.SalesOrder
+
+@{
+    ViewBag.Title = "Details";
+    IEnumerable<MrSparklyMVC.Models.SalesOrderLine> salesOrderLines = Model.SalesOrderLines;
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SalesOrder</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Retailer.retailerName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Retailer.retailerName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.salesOrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.salesOrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.salesOrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.salesOrderDate)
+    </div>
+</fieldset>
+    
+        <div class="orderLines">
+        @{Html.RenderPartial("_SalesOrderLines", salesOrderLines);}
+        </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.salesOrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

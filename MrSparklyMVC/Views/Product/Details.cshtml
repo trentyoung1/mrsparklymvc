@@ -1,0 +1,43 @@
+﻿@model MrSparklyMVC.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.productBrandName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.productBrandName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.productCostPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.productCostPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.productRetailPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.productRetailPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.productQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.productQty)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.productID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

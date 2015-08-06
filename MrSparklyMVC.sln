@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC", "MrSparklyMVC\MrSparklyMVC.csproj", "{345BCACF-72BD-46C2-B8F7-DDB1F0CBC621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC.Tests", "MrSparklyMVC.Tests\MrSparklyMVC.Tests.csproj", "{FB07BE97-8B49-4055-A526-101BEE2509BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC.Models", "MrSparklyMVC.Models\MrSparklyMVC.Models.csproj", "{037D3D9E-0880-407F-9499-D6CE1D67942C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{345BCACF-72BD-46C2-B8F7-DDB1F0CBC621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345BCACF-72BD-46C2-B8F7-DDB1F0CBC621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345BCACF-72BD-46C2-B8F7-DDB1F0CBC621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345BCACF-72BD-46C2-B8F7-DDB1F0CBC621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB07BE97-8B49-4055-A526-101BEE2509BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB07BE97-8B49-4055-A526-101BEE2509BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB07BE97-8B49-4055-A526-101BEE2509BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB07BE97-8B49-4055-A526-101BEE2509BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{037D3D9E-0880-407F-9499-D6CE1D67942C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037D3D9E-0880-407F-9499-D6CE1D67942C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037D3D9E-0880-407F-9499-D6CE1D67942C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037D3D9E-0880-407F-9499-D6CE1D67942C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

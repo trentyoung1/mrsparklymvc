@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.SalesOrderLine>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderLinesID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderItemQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderLinesSubtotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderLinesID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderItemQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderLinesSubtotal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "SalesOrderLines", new { id = item.salesOrderLinesID }, null ) |
+            @Html.ActionLink("Delete", "Delete", "SalesOrderLines", new { id = item.salesOrderLinesID }, null)
+        </td>
+    </tr>
+}
+
+</table>

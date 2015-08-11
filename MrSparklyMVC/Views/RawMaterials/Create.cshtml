@@ -1,0 +1,60 @@
+﻿@model MrSparklyMVC.Models.RawMaterial
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RawMaterial</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rawMaterialsID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rawMaterialsID)
+            @Html.ValidationMessageFor(model => model.rawMaterialsID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rawMaterialsName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rawMaterialsName)
+            @Html.ValidationMessageFor(model => model.rawMaterialsName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rawMaterialsPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rawMaterialsPrice)
+            @Html.ValidationMessageFor(model => model.rawMaterialsPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rawMaterialsQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rawMaterialsQty)
+            @Html.ValidationMessageFor(model => model.rawMaterialsQty)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

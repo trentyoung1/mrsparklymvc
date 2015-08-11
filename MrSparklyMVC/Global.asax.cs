@@ -17,12 +17,14 @@ namespace MrSparklyMVC
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            ViewEngines.Engines.Add(new MyViewEngine());
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Filters.Add(new System.Web.Http.AuthorizeAttribute());
             AuthConfig.RegisterAuth();
         }
     }
+
 }

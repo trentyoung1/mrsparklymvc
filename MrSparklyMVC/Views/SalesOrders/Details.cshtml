@@ -1,41 +1,41 @@
 ﻿@model MrSparklyMVC.Models.SalesOrder
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Order Details";
     IEnumerable<MrSparklyMVC.Models.SalesOrderLine> salesOrderLines = Model.SalesOrderLines;
 }
 
-<h2>Details</h2>
+<h2>Order Details</h2>
 
 <fieldset>
     <legend>SalesOrder</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Retailer.retailerName)
+        <h3>@Html.DisplayNameFor(model => model.Retailer.retailerName)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Retailer.retailerName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.salesOrderNo)
+        <h3>@Html.DisplayNameFor(model => model.salesOrderNo)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.salesOrderNo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.salesOrderDate)
+        <h3>@Html.DisplayNameFor(model => model.salesOrderDate)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.salesOrderDate)
     </div>
 </fieldset>
-    
-        <div class="orderLines">
+<h2>Order Items</h2> 
+        <div class="orderLines">   
         @{Html.RenderPartial("_SalesOrderLines", salesOrderLines);}
         </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.salesOrderID }) |
+    @Html.ActionLink("Edit Order Details", "Edit", new { id=Model.salesOrderID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

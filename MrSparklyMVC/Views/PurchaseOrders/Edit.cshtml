@@ -1,0 +1,62 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrder
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PurchaseOrder</legend>
+
+        @Html.HiddenFor(model => model.purchaseOrderID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.supplierID, "Supplier")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("supplierID", String.Empty)
+            @Html.ValidationMessageFor(model => model.supplierID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderNo)
+            @Html.ValidationMessageFor(model => model.purchaseOrderNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderDate)
+            @Html.ValidationMessageFor(model => model.purchaseOrderDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.deliveryAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.deliveryAddress)
+            @Html.ValidationMessageFor(model => model.deliveryAddress)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

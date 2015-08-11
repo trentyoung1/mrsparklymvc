@@ -1,0 +1,75 @@
+﻿@model MrSparklyMVC.Models.Supplier
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Supplier</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.contactName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.contactName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierStreet)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierStreet)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierPhone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierPhone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierMobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierMobile)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierFax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierFax)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.supplierEmail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.supplierEmail)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Suburb.suburb1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Suburb.suburb1)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

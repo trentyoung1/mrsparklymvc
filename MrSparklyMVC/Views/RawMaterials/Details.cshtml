@@ -1,0 +1,43 @@
+﻿@model MrSparklyMVC.Models.RawMaterial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RawMaterial</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rawMaterialsID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rawMaterialsID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rawMaterialsName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rawMaterialsName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rawMaterialsPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rawMaterialsPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rawMaterialsQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rawMaterialsQty)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

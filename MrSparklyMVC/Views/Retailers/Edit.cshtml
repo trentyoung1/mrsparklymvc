@@ -1,0 +1,102 @@
+﻿@model MrSparklyMVC.Models.Retailer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Retailer</legend>
+
+        @Html.HiddenFor(model => model.retailerID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.employeeID, "Employee")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("employeeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.employeeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerName)
+            @Html.ValidationMessageFor(model => model.retailerName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerContactName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerContactName)
+            @Html.ValidationMessageFor(model => model.retailerContactName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerStreet)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerStreet)
+            @Html.ValidationMessageFor(model => model.retailerStreet)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerPhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerPhone)
+            @Html.ValidationMessageFor(model => model.retailerPhone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerMob)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerMob)
+            @Html.ValidationMessageFor(model => model.retailerMob)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerFax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerFax)
+            @Html.ValidationMessageFor(model => model.retailerFax)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.retailerEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.retailerEmail)
+            @Html.ValidationMessageFor(model => model.retailerEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.suburbID, "Suburb")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("suburbID", String.Empty)
+            @Html.ValidationMessageFor(model => model.suburbID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

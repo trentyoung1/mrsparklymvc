@@ -96,12 +96,15 @@
     <Compile Include="Retailer.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="Retailers.cs" />
     <Compile Include="SalesOrder.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
     <Compile Include="SalesOrderLine.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="SalesOrderLines.cs" />
+    <Compile Include="SalesOrders.cs" />
     <Compile Include="Suburb.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>

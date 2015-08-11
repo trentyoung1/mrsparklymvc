@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.SalesOrderLine>
-
+<div id="content">
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add an Item", "Create", "SalesOrderLines")
 </p>
 <table>
     <tr>
@@ -12,7 +12,7 @@
             @Html.DisplayNameFor(model => model.salesOrderID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.productID)
+            @Html.DisplayNameFor(model => model.Product.productBrandName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.salesOrderItemQty)
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.salesOrderID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.productID)
+            @Html.DisplayFor(modelItem => item.Product.productBrandName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.salesOrderItemQty)
@@ -47,10 +47,14 @@
             @Html.DisplayFor(modelItem => item.salesOrderLinesSubtotal)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", "SalesOrderLines", new { id = item.salesOrderLinesID }, null ) |
+            @Ajax.ActionLink("Edit", "EditLine", "SalesOrderLines", new { id = item.salesOrderLinesID }, new AjaxOptions { UpdateTargetId = "content", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }) |
             @Html.ActionLink("Delete", "Delete", "SalesOrderLines", new { id = item.salesOrderLinesID }, null)
         </td>
     </tr>
 }
 
 </table>
+    </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryval")

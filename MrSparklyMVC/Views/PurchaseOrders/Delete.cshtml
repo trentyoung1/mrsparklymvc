@@ -1,0 +1,47 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrder
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>PurchaseOrder</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Supplier.supplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Supplier.supplierName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.deliveryAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.deliveryAddress)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

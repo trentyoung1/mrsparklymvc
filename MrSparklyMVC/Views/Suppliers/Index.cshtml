@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierStreet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierFax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplierEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suburb.suburb1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierStreet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierFax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplierEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suburb.suburb1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.supplierID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.supplierID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.supplierID })
+        </td>
+    </tr>
+}
+
+</table>

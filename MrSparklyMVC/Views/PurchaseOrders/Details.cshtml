@@ -1,0 +1,43 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PurchaseOrder</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Supplier.supplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Supplier.supplierName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.deliveryAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.deliveryAddress)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.purchaseOrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

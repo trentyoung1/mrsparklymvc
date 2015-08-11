@@ -188,13 +188,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.cs" />
+    <Compile Include="Controllers\RawMaterialsController.cs" />
+    <Compile Include="Controllers\RetailersController.cs" />
     <Compile Include="Controllers\SalesOrderLinesController.cs" />
     <Compile Include="Controllers\SalesOrdersController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="MyViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +331,27 @@
     <Content Include="Views\SalesOrderLines\Create.cshtml" />
     <Content Include="Views\SalesOrderLines\Edit.cshtml" />
     <Content Include="Views\SalesOrderLines\Delete.cshtml" />
+    <Content Include="Views\Shared\_SalesOrderLinesEdit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Index.cshtml" />
+    <Content Include="Views\PurchaseOrders\Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Delete.cshtml" />
+    <Content Include="Views\Retailers\Index.cshtml" />
+    <Content Include="Views\Retailers\Details.cshtml" />
+    <Content Include="Views\Retailers\Create.cshtml" />
+    <Content Include="Views\Retailers\Edit.cshtml" />
+    <Content Include="Views\Retailers\Delete.cshtml" />
+    <Content Include="Views\RawMaterials\Index.cshtml" />
+    <Content Include="Views\RawMaterials\Details.cshtml" />
+    <Content Include="Views\RawMaterials\Create.cshtml" />
+    <Content Include="Views\RawMaterials\Edit.cshtml" />
+    <Content Include="Views\RawMaterials\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

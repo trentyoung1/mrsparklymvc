@@ -87,6 +87,15 @@ namespace MrSparklyMVC.Controllers
             }
         }
 
+        public ActionResult EditLine(int id = 0)
+        {
+            SalesOrderLine salesorderline = db.SalesOrderLines.Find(id);
+            ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName", salesorderline.productID);
+            ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo", salesorderline.salesOrderID);
+
+            return PartialView("_SalesOrderLinesEdit", salesorderline);
+        }
+
         //
         // POST: /SalesOrderLines/Edit/5
 

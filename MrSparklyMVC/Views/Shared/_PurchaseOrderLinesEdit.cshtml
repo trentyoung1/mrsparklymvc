@@ -1,0 +1,72 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrderLine
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h3>Edit Item</h3>
+
+@using (Html.BeginForm("Edit", "PurchaseOrderLines")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PurchaseOrderLine</legend>
+
+        <!--<div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderLinesID, "Line ID")
+        </div>-->
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderLinesID, new { @readonly = "readonly", disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.purchaseOrderLinesID)
+        </div>
+
+        <!--<div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderID, "Order ID")
+        </div>-->
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderID, new { @readonly = "readonly", disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.purchaseOrderID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rawMaterialsID, "Raw Materials")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("rawMaterialsID", ViewBag.rawMaterialsID as SelectList, new { @class = "MaterialDDL" })
+            @Html.ValidationMessageFor(model => model.rawMaterialsID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderItemQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderItemQty)
+            @Html.ValidationMessageFor(model => model.purchaseOrderItemQty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderItemPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderItemPrice)
+            @Html.ValidationMessageFor(model => model.purchaseOrderItemPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.purchaseOrderLineSubtotal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.purchaseOrderLineSubtotal)
+            @Html.ValidationMessageFor(model => model.purchaseOrderLineSubtotal)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Order Details", "Details", "PurchaseOrders", new { id = Model.purchaseOrderID }, null)
+</div>

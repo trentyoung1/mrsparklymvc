@@ -1,0 +1,57 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrderLine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PurchaseOrderLine</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderLinesID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderLinesID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PurchaseOrder.purchaseOrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PurchaseOrder.purchaseOrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RawMaterial.rawMaterialsName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RawMaterial.rawMaterialsName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderItemQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderItemQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderItemPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderItemPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderLineSubtotal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderLineSubtotal)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

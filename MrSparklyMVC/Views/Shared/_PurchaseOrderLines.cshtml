@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.PurchaseOrderLine>
+
+<div id="content">
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RawMaterial.rawMaterialsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderItemQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderLineSubtotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RawMaterial.rawMaterialsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderItemQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderLineSubtotal)
+        </td>
+        <td>
+            @Ajax.ActionLink("Edit", "Edit", "PurchaseOrderLines", new { id = item.purchaseOrderLinesID }, new AjaxOptions { UpdateTargetId = "content", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }) |
+            @Html.ActionLink("Delete", "Delete", "PurchaseOrderLines", new { id = item.purchaseOrderLinesID }, null)
+        </td>
+    </tr>
+}
+
+</table>
+    </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryval")

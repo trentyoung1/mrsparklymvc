@@ -1,14 +1,25 @@
 ﻿@model MrSparklyMVC.Models.SalesOrderLine
 
 @{
-    ViewBag.Title = "Edit";
 }
 
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    var $product = $('productDDL');
+    $product.on('change', function () {
+        $.getJSON('@Url.Action("GetProductPrice","Product")',
+                   $product.val,
+                   function (price) {
+                       $('#price').val(price);
+                   });
+    });
+</script>
 
-<h3>Edit Item</h3>
+<h3>New Item</h3>
 
-@using (Html.BeginForm("Edit", "SalesOrderLines"))
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -16,18 +27,18 @@
         <legend>SalesOrderLine</legend>
 
         <!--<div class="editor-label">
-            @Html.LabelFor(model => model.salesOrderLinesID, "Line ID")
+            @Html.LabelFor(model => model.salesOrderLinesID)
         </div>-->
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderLinesID, new { @readonly = "readonly", disabled = "disabled" })
+            @Html.EditorFor(model => model.salesOrderLinesID, new { @readonly = "readonly", disabled= "disabled" })
             @Html.ValidationMessageFor(model => model.salesOrderLinesID)
         </div>
 
         <!--<div class="editor-label">
-            @Html.LabelFor(model => model.salesOrderID, "Order ID")
+            @Html.LabelFor(model => model.salesOrderID)
         </div>-->
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderID, new { @readonly = "readonly", disabled = "disabled" })
+            @Html.EditorFor(model => model.salesOrderID)
             @Html.ValidationMessageFor(model => model.salesOrderID)
         </div>
 
@@ -35,7 +46,7 @@
             @Html.LabelFor(model => model.productID, "Product")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("productID", ViewBag.productID as SelectList, new { @class = "productDDL" })
+            @Html.DropDownList("ProductID", ViewBag.productID as SelectList, new { @class = "productDDL" })
             @Html.ValidationMessageFor(model => model.productID)
         </div>
 
@@ -51,7 +62,7 @@
             @Html.LabelFor(model => model.salesOrderItemPrice)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderItemPrice, new { @class = "itemPrice" })
+            @Html.EditorFor(model => model.salesOrderItemPrice)
             @Html.ValidationMessageFor(model => model.salesOrderItemPrice)
         </div>
 
@@ -64,7 +75,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
@@ -72,18 +83,3 @@
 <div>
     @Html.ActionLink("Back to Order Details", "Details", "SalesOrders", new { id = Model.salesOrderID }, null)
 </div>
-
-@section Scripts {
-<script>
-var $product = $('productDDL');
-$product.change( function() {
-     $.getJSON( '@Url.Action("GetProductPrice","Product")',
-                $product,
-                function(price) {
-                    $('#price').val(price);
-     });
-});
-
-</script>
-    @Scripts.Render("~/bundles/jqueryval")
-}

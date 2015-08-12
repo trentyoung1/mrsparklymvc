@@ -538,7 +538,7 @@ th {
     font-size: 1.2em;
     text-align: left;
     border: none 0px;
-    padding-left: 0;
+    padding: 0.25em 1em 0.5em;
 }
 
     th a {
@@ -578,7 +578,7 @@ th {
     }
 
 td {
-    padding: 0.25em 5em 0.5em 0em;
+    padding: 0.25em 1em 0.5em;
     border: 0 none;
 }
 

@@ -2,42 +2,51 @@
 
 @{
     ViewBag.Title = "Details";
+    IEnumerable<MrSparklyMVC.Models.PurchaseOrderLine> purchaseOrderLines = Model.PurchaseOrderLines;
 }
 
-<h2>Details</h2>
+<h2>Order Details</h2>
 
 <fieldset>
     <legend>PurchaseOrder</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Supplier.supplierName)
+       <h3>@Html.DisplayNameFor(model => model.Supplier.supplierName)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Supplier.supplierName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.purchaseOrderNo)
+        <h3>@Html.DisplayNameFor(model => model.purchaseOrderNo)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.purchaseOrderNo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.purchaseOrderDate)
+        <h3>@Html.DisplayNameFor(model => model.purchaseOrderDate)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.purchaseOrderDate)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.deliveryAddress)
+         <h3>@Html.DisplayNameFor(model => model.deliveryAddress)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.deliveryAddress)
     </div>
 </fieldset>
+<h2>Order Items</h2>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.purchaseOrderID }) |
+    @Ajax.ActionLink("Add an Item", "Create", "PurchaseOrderLines", new { id = Model.purchaseOrderID }, new AjaxOptions { UpdateTargetId = "orderLines", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+</p>
+<div id="orderLines">
+    @{Html.RenderPartial("_PurchaseOrderLines", purchaseOrderLines);}
+</div>
+<p>
+<p>
+    @Html.ActionLink("Edit Order", "Edit", new { id=Model.purchaseOrderID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

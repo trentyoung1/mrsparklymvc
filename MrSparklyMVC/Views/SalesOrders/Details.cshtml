@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Order Details";
     IEnumerable<MrSparklyMVC.Models.SalesOrderLine> salesOrderLines = Model.SalesOrderLines;
+    ViewBag.SorderID = Model.salesOrderID;
 }
 
 <h2>Order Details</h2>
@@ -32,7 +33,10 @@
     </div>
 </fieldset>
 <h2>Order Items</h2> 
-        <div class="orderLines">   
+<p>
+    @Ajax.ActionLink("Add an Item", "Create", "SalesOrderLines", new { id = Model.salesOrderID }, new AjaxOptions { UpdateTargetId = "orderLines", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+</p>
+        <div id="orderLines">   
         @{Html.RenderPartial("_SalesOrderLines", salesOrderLines);}
         </div>
 <p>

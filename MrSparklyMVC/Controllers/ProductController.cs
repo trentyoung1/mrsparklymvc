@@ -34,6 +34,17 @@ namespace MrSparklyMVC.Controllers
             return View(product);
         }
 
+        public ActionResult GetProductPrice(int id = 0)
+        {
+            Product product = db.Products.Find(id);
+
+            if (!(product == null))
+            {
+                return Json(product.productRetailPrice, JsonRequestBehavior.AllowGet);
+            }
+            else return null;
+        }
+
         //
         // GET: /Product/Create
 

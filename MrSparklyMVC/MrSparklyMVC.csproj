@@ -188,6 +188,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\PurchaseOrderLinesController.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\RawMaterialsController.cs" />
     <Compile Include="Controllers\RetailersController.cs" />
@@ -352,6 +353,15 @@
     <Content Include="Views\Suppliers\Create.cshtml" />
     <Content Include="Views\Suppliers\Edit.cshtml" />
     <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Shared\_SalesOrderLinesCreate.cshtml" />
+    <Content Include="Views\Shared\_PurchaseOrderLines.cshtml" />
+    <Content Include="Views\PurchaseOrderLines\Index.cshtml" />
+    <Content Include="Views\PurchaseOrderLines\Details.cshtml" />
+    <Content Include="Views\PurchaseOrderLines\Create.cshtml" />
+    <Content Include="Views\PurchaseOrderLines\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrderLines\Delete.cshtml" />
+    <Content Include="Views\Shared\_PurchaseOrderLinesEdit.cshtml" />
+    <Content Include="Views\Shared\_PurchaseOrderLinesCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.Supplier>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Supplier Index";
 }
 
-<h2>Index</h2>
+<h2>Suppliers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Supplier", "Create")
 </p>
 <table>
     <tr>
@@ -18,16 +18,7 @@
             @Html.DisplayNameFor(model => model.contactName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.supplierStreet)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.supplierPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.supplierMobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.supplierFax)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.supplierEmail)
@@ -47,16 +38,7 @@
             @Html.DisplayFor(modelItem => item.contactName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.supplierStreet)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.supplierPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.supplierMobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.supplierFax)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.supplierEmail)

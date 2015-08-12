@@ -1,19 +1,16 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.Retailer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Retailer Index";
 }
 
-<h2>Index</h2>
+<h2>Retailers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Retailer", "Create")
 </p>
 <table>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Employee.employeeFirstName)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.retailerName)
         </th>
@@ -21,16 +18,7 @@
             @Html.DisplayNameFor(model => model.retailerContactName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.retailerStreet)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.retailerPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.retailerMob)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.retailerFax)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.retailerEmail)
@@ -44,25 +32,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Employee.employeeFirstName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.retailerName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.retailerContactName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.retailerStreet)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.retailerPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.retailerMob)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.retailerFax)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.retailerEmail)

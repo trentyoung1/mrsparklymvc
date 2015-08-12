@@ -38,10 +38,18 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrderLines/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
             ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName");
             ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo");
+            SalesOrderLine orderLine = new SalesOrderLine();
+            orderLine.salesOrderID = id;
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_SalesOrderLinesCreate", orderLine);
+            }
+            
             return View();
         }
 
@@ -50,18 +58,18 @@ namespace MrSparklyMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(SalesOrderLine salesorderline)
+        public ActionResult Create(SalesOrderLine orderline)
         {
             if (ModelState.IsValid)
             {
-                db.SalesOrderLines.Add(salesorderline);
+                db.SalesOrderLines.Add(orderline);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "SalesOrders", new { id = orderline.salesOrderID });
             }
 
-            ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName", salesorderline.productID);
-            ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo", salesorderline.salesOrderID);
-            return View(salesorderline);
+            ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName", orderline.productID);
+            ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo", orderline.salesOrderID);
+            return View(orderline);
         }
 
         //
@@ -70,6 +78,9 @@ namespace MrSparklyMVC.Controllers
         public ActionResult Edit(int id = 0)
         {
             SalesOrderLine salesorderline = db.SalesOrderLines.Find(id);
+            ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName", salesorderline.productID);
+            ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo", salesorderline.salesOrderID);
+
             if (salesorderline == null)
             {
                 return HttpNotFound();
@@ -77,7 +88,7 @@ namespace MrSparklyMVC.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_SalesOrderLineEdit", salesorderline);
+                return PartialView("_SalesOrderLinesEdit", salesorderline);
             }
             else
             {
@@ -92,6 +103,7 @@ namespace MrSparklyMVC.Controllers
             SalesOrderLine salesorderline = db.SalesOrderLines.Find(id);
             ViewBag.productID = new SelectList(db.Products, "productID", "productBrandName", salesorderline.productID);
             ViewBag.salesOrderID = new SelectList(db.SalesOrders, "salesOrderID", "salesOrderNo", salesorderline.salesOrderID);
+            //ViewBag.salesOrderID = salesorderline.salesOrderID;
 
             return PartialView("_SalesOrderLinesEdit", salesorderline);
         }
@@ -103,6 +115,7 @@ namespace MrSparklyMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SalesOrderLine salesorderline)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(salesorderline).State = EntityState.Modified;

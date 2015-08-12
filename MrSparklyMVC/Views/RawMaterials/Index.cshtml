@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.RawMaterial>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Raw Materials Index";
 }
 
-<h2>Index</h2>
+<h2>Raw Materials</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Raw Material", "Create")
 </p>
 <table>
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.rawMaterialsQty)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.rawMaterialsID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.rawMaterialsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.rawMaterialsID })
         </td>
     </tr>
 }

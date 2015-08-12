@@ -1,0 +1,61 @@
+﻿@model MrSparklyMVC.Models.PurchaseOrderLine
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>PurchaseOrderLine</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderLinesID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderLinesID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PurchaseOrder.purchaseOrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PurchaseOrder.purchaseOrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RawMaterial.rawMaterialsName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RawMaterial.rawMaterialsName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderItemQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderItemQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderItemPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderItemPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.purchaseOrderLineSubtotal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.purchaseOrderLineSubtotal)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

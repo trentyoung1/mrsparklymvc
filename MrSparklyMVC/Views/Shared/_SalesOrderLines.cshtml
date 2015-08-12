@@ -1,16 +1,10 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.SalesOrderLine>
+           @{
+               var orderID = ViewBag.orderID;
+           }
 <div id="content">
-<p>
-    @Html.ActionLink("Add an Item", "Create", "SalesOrderLines")
-</p>
 <table>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.salesOrderLinesID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.salesOrderID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Product.productBrandName)
         </th>
@@ -29,12 +23,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.salesOrderLinesID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.salesOrderID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Product.productBrandName)
         </td>
         <td>
@@ -47,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.salesOrderLinesSubtotal)
         </td>
         <td>
-            @Ajax.ActionLink("Edit", "EditLine", "SalesOrderLines", new { id = item.salesOrderLinesID }, new AjaxOptions { UpdateTargetId = "content", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }) |
+            @Ajax.ActionLink("Edit", "Edit", "SalesOrderLines", new { id = item.salesOrderLinesID }, new AjaxOptions { UpdateTargetId = "content", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }) |
             @Html.ActionLink("Delete", "Delete", "SalesOrderLines", new { id = item.salesOrderLinesID }, null)
         </td>
     </tr>

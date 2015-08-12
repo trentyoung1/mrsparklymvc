@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.PurchaseOrderLine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderLinesID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseOrder.purchaseOrderNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RawMaterial.rawMaterialsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderItemQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.purchaseOrderLineSubtotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderLinesID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseOrder.purchaseOrderNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RawMaterial.rawMaterialsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderItemQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.purchaseOrderLineSubtotal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

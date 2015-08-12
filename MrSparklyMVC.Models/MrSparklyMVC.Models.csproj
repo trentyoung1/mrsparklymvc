@@ -54,6 +54,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,9 +91,12 @@
     <Compile Include="PurchaseOrderLine.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="PurchaseOrderLines.cs" />
+    <Compile Include="PurchaseOrders.cs" />
     <Compile Include="RawMaterial.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="RawMaterials.cs" />
     <Compile Include="Retailer.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
@@ -108,9 +112,11 @@
     <Compile Include="Suburb.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="Suburbs.cs" />
     <Compile Include="Supplier.cs">
       <DependentUpon>MrSparkly.tt</DependentUpon>
     </Compile>
+    <Compile Include="Suppliers.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

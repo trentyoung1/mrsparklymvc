@@ -6,12 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MrSparklyMVC.Models;
+using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
     public class PurchaseOrdersController : Controller
     {
         private MrSparklyEntities db = new MrSparklyEntities();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         //
         // GET: /PurchaseOrders/
@@ -30,6 +32,7 @@ namespace MrSparklyMVC.Controllers
             PurchaseOrder purchaseorder = db.PurchaseOrders.Find(id);
             if (purchaseorder == null)
             {
+                logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
             return View(purchaseorder);
@@ -70,6 +73,7 @@ namespace MrSparklyMVC.Controllers
             PurchaseOrder purchaseorder = db.PurchaseOrders.Find(id);
             if (purchaseorder == null)
             {
+                logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
             ViewBag.supplierID = new SelectList(db.Suppliers, "supplierID", "supplierName", purchaseorder.supplierID);
@@ -101,6 +105,7 @@ namespace MrSparklyMVC.Controllers
             PurchaseOrder purchaseorder = db.PurchaseOrders.Find(id);
             if (purchaseorder == null)
             {
+                logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
             return View(purchaseorder);

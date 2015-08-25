@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MrSparklyMVC.Filters;
 using MrSparklyMVC.Models;
+using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
@@ -17,6 +18,9 @@ namespace MrSparklyMVC.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         //
         // GET: /Account/Login
 

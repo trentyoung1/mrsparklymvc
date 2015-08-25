@@ -6,12 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MrSparklyMVC.Models;
+using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
     public class ProductController : Controller
     {
         private MrSparklyEntities db = new MrSparklyEntities();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         //
         // GET: /Product/
@@ -29,6 +31,7 @@ namespace MrSparklyMVC.Controllers
             Product product = db.Products.Find(id);
             if (product == null)
             {
+                logger.Error("Invalid Product ID (id={0})", id);
                 return HttpNotFound();
             }
             return View(product);
@@ -45,7 +48,11 @@ namespace MrSparklyMVC.Controllers
             {
                 return Json(product.productRetailPrice, JsonRequestBehavior.AllowGet);
             }
-            else return null;
+            else
+            {
+                logger.Error("Invalid Product ID (id={0})", id);
+                return null;
+            }
         }
 
         //
@@ -81,6 +88,7 @@ namespace MrSparklyMVC.Controllers
             Product product = db.Products.Find(id);
             if (product == null)
             {
+                logger.Error("Invalid Product ID (id={0})", id);
                 return HttpNotFound();
             }
             return View(product);
@@ -110,6 +118,7 @@ namespace MrSparklyMVC.Controllers
             Product product = db.Products.Find(id);
             if (product == null)
             {
+                logger.Error("Invalid Product ID (id={0})", id);
                 return HttpNotFound();
             }
             return View(product);

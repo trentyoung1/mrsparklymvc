@@ -6,12 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MrSparklyMVC.Models;
+using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
     public class RawMaterialsController : Controller
     {
         private MrSparklyEntities db = new MrSparklyEntities();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         //
         // GET: /RawMaterials/

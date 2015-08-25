@@ -7,14 +7,39 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
-    var $product = $('productDDL');
-    $product.on('change', function () {
-        $.getJSON('@Url.Action("GetProductPrice","Product")',
-                   $product.val,
+    var $product = $('#productDDL');
+    var $quantity = $('#quantity');
+    var $price = $('#price');
+
+    var updatePrice = function () {
+        $url = '../../Product/GetProductPrice/' + $product.val();
+        $.getJSON($url,
                    function (price) {
+                       //
                        $('#price').val(price);
-                   });
-    });
+                   })
+        .fail(function () {
+            alert("fail");
+        });
+    }
+
+    var lastval = '';
+    var updateSubtotal = function () {
+       // if ($('#quantity').val() != lastval) {
+            lastval = $('#quantity').val();
+            //alert(lastval);
+            var price = parseInt($('#price').val());
+            var qty = parseInt($('#quantity').val());            
+            //alert(price + qty);
+            $('#subTotal').val((price * qty).toString());
+        //}
+    }
+
+    updatePrice();
+
+    $product.on('change', updatePrice);
+    $quantity.on('change', updateSubtotal);
+    $product.on('change', updateSubtotal);
 </script>
 
 <h3>New Item</h3>
@@ -46,7 +71,7 @@
             @Html.LabelFor(model => model.productID, "Product")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ProductID", ViewBag.productID as SelectList, new { @class = "productDDL" })
+            @Html.DropDownList("ProductID", ViewBag.productID as SelectList, new { @id = "productDDL" })
             @Html.ValidationMessageFor(model => model.productID)
         </div>
 
@@ -54,7 +79,7 @@
             @Html.LabelFor(model => model.salesOrderItemQty)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderItemQty)
+            @Html.TextBoxFor(model => model.salesOrderItemQty, new { @id = "quantity" })
             @Html.ValidationMessageFor(model => model.salesOrderItemQty)
         </div>
 
@@ -62,7 +87,7 @@
             @Html.LabelFor(model => model.salesOrderItemPrice)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderItemPrice)
+            @Html.TextBoxFor(model => model.salesOrderItemPrice, new { @id = "price" })
             @Html.ValidationMessageFor(model => model.salesOrderItemPrice)
         </div>
 
@@ -70,7 +95,7 @@
             @Html.LabelFor(model => model.salesOrderLinesSubtotal)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderLinesSubtotal)
+            @Html.TextBoxFor(model => model.salesOrderLinesSubtotal, new { @id = "subTotal" })
             @Html.ValidationMessageFor(model => model.salesOrderLinesSubtotal)
         </div>
 

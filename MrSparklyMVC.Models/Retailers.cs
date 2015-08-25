@@ -14,6 +14,9 @@ namespace MrSparklyMVC.Models
 
     public class RetailerMetadata
     {
+        [Display(Name="Employee Name")]
+        public Nullable<int> employeeID { get; set; }
+
         [Display(Name="Retailer")]
         [Required]
         [StringLength(50, MinimumLength=1)]

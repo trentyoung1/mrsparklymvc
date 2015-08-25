@@ -3,7 +3,25 @@
 @{
     ViewBag.Title = "Edit";
 }
+<script>
+    var $product = $('#productDDL');
 
+    var updatePrice = function () {
+        $url = '../../Product/GetProductPrice/' + $product.val();
+        $.getJSON($url,
+                   function (price) {
+                       //
+                       $('#price').val(price);
+                   })
+        .fail(function () {
+            alert("fail");
+        });
+    }
+
+    updatePrice();
+
+    $product.on('change', updatePrice);
+</script>
 
 <h3>Edit Item</h3>
 
@@ -35,7 +53,7 @@
             @Html.LabelFor(model => model.productID, "Product")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("productID", ViewBag.productID as SelectList, new { @class = "productDDL" })
+            @Html.DropDownList("productID", ViewBag.productID as SelectList, new { @id = "productDDL" })
             @Html.ValidationMessageFor(model => model.productID)
         </div>
 
@@ -51,7 +69,7 @@
             @Html.LabelFor(model => model.salesOrderItemPrice)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.salesOrderItemPrice, new { @class = "itemPrice" })
+            @Html.TextBoxFor(model => model.salesOrderItemPrice, new { @id = "price" })
             @Html.ValidationMessageFor(model => model.salesOrderItemPrice)
         </div>
 

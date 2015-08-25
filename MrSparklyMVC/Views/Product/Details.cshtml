@@ -4,34 +4,34 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Product Details</h2>
 
 <fieldset>
     <legend>Product</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.productBrandName)
+         <h3>@Html.DisplayNameFor(model => model.productBrandName)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.productBrandName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.productCostPrice)
+        <h3>@Html.DisplayNameFor(model => model.productCostPrice)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.productCostPrice)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.productRetailPrice)
+        <h3>@Html.DisplayNameFor(model => model.productRetailPrice)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.productRetailPrice)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.productQty)
+         <h3>@Html.DisplayNameFor(model => model.productQty)</h3>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.productQty)

@@ -3,6 +3,25 @@
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    var $product = $('#productDDL');
+
+    var updatePrice = function () {
+        $url = '../../Product/GetProductPrice/' + $product.val();
+        $.getJSON($url,
+                   function (price) {
+                       //
+                       $('#price').val(price);
+                   })
+        .fail(function () {
+            alert("fail");
+        });
+    }
+
+    updatePrice();
+
+    $product.on('change', updatePrice);
+</script>
 
 <h3>Edit Item</h3>
 

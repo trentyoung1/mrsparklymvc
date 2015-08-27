@@ -37,6 +37,24 @@ namespace MrSparklyMVC.Controllers
         }
 
         //
+        // GET: /RawMaterials/GetRawMaterialPrice/5
+
+        public JsonResult GetRawMaterialPrice(int id = 0)
+        {
+            RawMaterial rawMat = db.RawMaterials.Find(id);
+
+            if (!(rawMat == null))
+            {
+                return Json(rawMat.rawMaterialsPrice, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                logger.Error("Invalid Material ID (id={0})", id);
+                return null;
+            }
+        }
+
+        //
         // GET: /RawMaterials/Create
 
         public ActionResult Create()

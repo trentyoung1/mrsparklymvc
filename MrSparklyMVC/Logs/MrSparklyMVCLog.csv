@@ -3,3 +3,4 @@ DateTime,Level,Logger,Message,Callsite,Exception,Solution
 25/08/2015 13:21,INFO,MrSparklyMVC.Controllers.ProductController,product success,MrSparklyMVC.Controllers.ProductController.GetProductPrice,,
 27/08/2015 20:04,ERROR,MrSparklyMVC.Controllers.EmployeesController,Invalid ID (id=0),MrSparklyMVC.Controllers.EmployeesController.Edit,,"Incorrect Number of parameters passed to html.actionlink method, added null object for htmlattributes parameter."
 27/08/2015 20:08,ERROR,MrSparklyMVC.Controllers.EmployeesController,Invalid ID (id=0),MrSparklyMVC.Controllers.EmployeesController.Edit,,"Incorrect Number of parameters passed to html.actionlink method, added null object for htmlattributes parameter."
+2015-08-27 21:12:59.5549,ERROR,MrSparklyMVC.Controllers.ProductController,Invalid Product ID (id=0),MrSparklyMVC.Controllers.ProductController.GetProductPrice,

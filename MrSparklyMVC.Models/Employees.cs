@@ -19,17 +19,17 @@ namespace MrSparklyMVC.Models
 
         [Display(Name="Employee Name")]
         [Required]
-        [StringLength(50, MinimumLength= 0)]
+        [StringLength(50, MinimumLength= 1)]
         public string employeeFirstName { get; set; }
 
         [Display(Name="Last Name")]
         [Required]
-        [StringLength(50, MinimumLength=0)]
+        [StringLength(50, MinimumLength=1)]
         public string employeeLastName { get; set; }
 
         [Display(Name="Street")]
         [Required]
-        [StringLength(150, MinimumLength=0)]
+        [StringLength(150, MinimumLength=1)]
         public string employeeStreet { get; set; }
 
         [Display(Name="Phone")]
@@ -46,12 +46,22 @@ namespace MrSparklyMVC.Models
 
         [Display(Name="E-Mail")]
         [Required]
-        [StringLength(60, MinimumLength=0)]
+        [StringLength(60, MinimumLength=1)]
         public string employeeEmail { get; set; }
 
         [Display(Name="Department")]
         [Required]
-        [StringLength(60, MinimumLength=0)]
+        [StringLength(60, MinimumLength=1)]
         public string employeeDepartment { get; set; }
+
+        [Display(Name="Username")]
+        [Required]
+        [StringLength(20, MinimumLength=6)]
+        public string employeeUsername { get; set; }
+
+        [Display(Name="Password")]
+        [Required]
+        [StringLength(50, MinimumLength=8)]
+        public string employeePassword { get; set; }
     }
 }

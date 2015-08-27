@@ -11,6 +11,7 @@
     var $quantity = $('#quantity');
     var $price = $('#price');
 
+    //updates the price textbox with the retail price of the selected product.
     var updatePrice = function () {
         $url = '../../Product/GetProductPrice/' + $product.val();
         $.getJSON($url,
@@ -21,25 +22,25 @@
         .fail(function () {
             alert("fail");
         });
+
+        //if a qty has been set, update the subtotal also
+        var qtyVal = ($quantity.val())
+        //the function call is delayed to ensure the price txtbox has been updated with the new price.
+        if (qtyVal != "") {  window.setTimeout(updateSubtotal, 50); }
     }
 
-    var lastval = '';
+    //updates the line subtotal
     var updateSubtotal = function () {
-       // if ($('#quantity').val() != lastval) {
-            lastval = $('#quantity').val();
-            //alert(lastval);
-            var price = parseInt($('#price').val());
-            var qty = parseInt($('#quantity').val());            
-            //alert(price + qty);
+            var price = parseFloat($('#price').val());
+            var qty = parseInt($('#quantity').val());
             $('#subTotal').val((price * qty).toString());
-        //}
     }
 
+    //update the price when page loads.
     updatePrice();
 
     $product.on('change', updatePrice);
     $quantity.on('change', updateSubtotal);
-    $product.on('change', updateSubtotal);
 </script>
 
 <h3>New Item</h3>

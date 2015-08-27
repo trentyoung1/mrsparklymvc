@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employees</h2>
+
+<p>
+    @Html.ActionLink("Create New Employee", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeMob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeDepartment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeMob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeDepartment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.employeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.employeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.employeeID })
+        </td>
+    </tr>
+}
+
+</table>

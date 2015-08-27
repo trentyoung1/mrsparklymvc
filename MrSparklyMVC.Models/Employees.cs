@@ -22,7 +22,7 @@ namespace MrSparklyMVC.Models
         [StringLength(50, MinimumLength= 0)]
         public string employeeFirstName { get; set; }
 
-        [Display(Name="Employee Last Name")]
+        [Display(Name="Last Name")]
         [Required]
         [StringLength(50, MinimumLength=0)]
         public string employeeLastName { get; set; }

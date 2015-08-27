@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MrSparklyMVC.Models.Retailer>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerStreet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerMob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerFax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retailerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suburbID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerStreet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerMob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerFax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retailerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suburbID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Retailers", new { id=item.retailerID }, null)
+            @Html.ActionLink("Details", "Details", "Retailers", new { id=item.retailerID }, null)
+        </td>
+    </tr>
+}
+
+</table>

@@ -10,120 +10,116 @@ using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
-    public class RetailersController : Controller
+    public class EmployeesController : Controller
     {
         private MrSparklyEntities db = new MrSparklyEntities();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         //
-        // GET: /Retailers/
+        // GET: /Employees/
 
         public ActionResult Index()
         {
-            var retailers = db.Retailers.Include(r => r.Employee).Include(r => r.Suburb);
-            return View(retailers.ToList());
+            var employees = db.Employees.Include(e => e.Suburb);
+            return View(employees.ToList());
         }
 
         //
-        // GET: /Retailers/Details/5
+        // GET: /Employees/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Retailer retailer = db.Retailers.Find(id);
-            if (retailer == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
-            return View(retailer);
+            return View(employee);
         }
 
         //
-        // GET: /Retailers/Create
+        // GET: /Employees/Create
 
         public ActionResult Create()
         {
-            ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeFirstName");
             ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1");
             return View();
         }
 
         //
-        // POST: /Retailers/Create
+        // POST: /Employees/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Retailer retailer)
+        public ActionResult Create(Employee employee)
         {
             if (ModelState.IsValid)
             {
-                db.Retailers.Add(retailer);
+                db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeFirstName", retailer.employeeID);
-            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", retailer.suburbID);
-            return View(retailer);
+            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", employee.suburbID);
+            return View(employee);
         }
 
         //
-        // GET: /Retailers/Edit/5
+        // GET: /Employees/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Retailer retailer = db.Retailers.Find(id);
-            if (retailer == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
-            ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeFirstName", retailer.employeeID);
-            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", retailer.suburbID);
-            return View(retailer);
+            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", employee.suburbID);
+            return View(employee);
         }
 
         //
-        // POST: /Retailers/Edit/5
+        // POST: /Employees/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Retailer retailer)
+        public ActionResult Edit(Employee employee)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(retailer).State = EntityState.Modified;
+                db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeFirstName", retailer.employeeID);
-            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", retailer.suburbID);
-            return View(retailer);
+            ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1", employee.suburbID);
+            return View(employee);
         }
 
         //
-        // GET: /Retailers/Delete/5
+        // GET: /Employees/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Retailer retailer = db.Retailers.Find(id);
-            if (retailer == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
-            return View(retailer);
+            return View(employee);
         }
 
         //
-        // POST: /Retailers/Delete/5
+        // POST: /Employees/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Retailer retailer = db.Retailers.Find(id);
-            db.Retailers.Remove(retailer);
+            Employee employee = db.Employees.Find(id);
+            db.Employees.Remove(employee);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

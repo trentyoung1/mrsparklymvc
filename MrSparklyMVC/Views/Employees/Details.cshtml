@@ -1,0 +1,97 @@
+﻿@model MrSparklyMVC.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    IEnumerable<MrSparklyMVC.Models.Retailer> retailers = Model.Retailers;
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Employee Details</legend>
+
+    <div class="display-label">
+        <h3>@Html.DisplayNameFor(model => model.employeeFirstName)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeFirstName)
+    </div>
+
+    <div class="display-label">
+        <h3>@Html.DisplayNameFor(model => model.employeeLastName)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeLastName)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeStreet)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeStreet)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeePhone)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeePhone)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeMob)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeMob)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeFax)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeFax)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeEmail)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeEmail)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeDepartment)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeDepartment)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeeUsername)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeUsername)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.employeePassword)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeePassword)
+    </div>
+
+    <div class="display-label">
+         <h3>@Html.DisplayNameFor(model => model.Suburb.suburb1)</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Suburb.suburb1)
+    </div>
+</fieldset>
+<h2>Assigned Retailers</h2>
+<div id="orderLines">
+    @{Html.RenderPartial("_EmployeeRetailers", retailers);}
+</div>
+<p>
+    @Html.ActionLink("Edit Employee", "Edit", new { id=Model.employeeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

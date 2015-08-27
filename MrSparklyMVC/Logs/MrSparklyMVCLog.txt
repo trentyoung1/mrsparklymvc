@@ -1,2 +1,0 @@
-2015-08-25 13:21:33.2073|INFO|MrSparklyMVC.Controllers.ProductController|product success|MrSparklyMVC.Controllers.ProductController.GetProductPrice|
-2015-08-25 13:21:35.6950|INFO|MrSparklyMVC.Controllers.ProductController|product success|MrSparklyMVC.Controllers.ProductController.GetProductPrice|

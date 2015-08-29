@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using MrSparklyMVC.Models;
 using NLog;
+using System.IO;
 
 namespace MrSparklyMVC.Controllers
 {
@@ -79,6 +80,49 @@ namespace MrSparklyMVC.Controllers
             }
 
             return View(product);
+        }
+
+        //
+        // POST: /Product/CreateFromFile
+
+        [HttpPost]
+        public ActionResult CreateFromFile()
+        {
+            HttpPostedFileBase file = Request.Files[0];
+
+            //ensure file is not empty
+            if (file != null && file.ContentLength > 0)
+            {
+                //ensure file is csv
+                if (file.ContentType == "text/csv" || file.ContentType == "application/vnd.ms-excel")
+                {
+                    //read in the first line of the file
+                    StreamReader sr = new StreamReader(file.InputStream);
+                    string productLine = sr.ReadLine();
+                    int count = 0;
+                    //read in each line of the file
+                    while (productLine != null)
+                    {
+                        //populate a new product with values
+                        string[] pArray = productLine.Split(',');
+                        Product newProd = new Product();
+                        newProd.productBrandName = pArray[0];
+                        newProd.productCostPrice = decimal.Parse(pArray[1]);
+                        newProd.productRetailPrice = decimal.Parse(pArray[2]);
+                        newProd.productQty = short.Parse(pArray[3]);
+
+                        //add the product to the db
+                        db.Products.Add(newProd);
+                        db.SaveChanges();
+                        count++;
+                        productLine = sr.ReadLine();
+                    }
+                    TempData["Msg"] = count.ToString() + " Products Successfully Created!";
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return View();
         }
 
         //

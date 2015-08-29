@@ -17,7 +17,6 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Employees/
-
         public ActionResult Index()
         {
             var employees = db.Employees.Include(e => e.Suburb);
@@ -26,7 +25,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Employees/Details/5
-
+        [Authorize(Roles="HR, Admin")]
         public ActionResult Details(int id = 0)
         {
             Employee employee = db.Employees.Find(id);
@@ -40,7 +39,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Employees/Create
-
+        [Authorize(Roles = "HR, Admin")]
         public ActionResult Create()
         {
             ViewBag.suburbID = new SelectList(db.Suburbs, "suburbID", "suburb1");
@@ -49,7 +48,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // POST: /Employees/Create
-
+        [Authorize(Roles = "HR, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Employee employee)
@@ -67,7 +66,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Employees/Edit/5
-
+        [Authorize(Roles = "HR, Admin")]
         public ActionResult Edit(int id = 0)
         {
             Employee employee = db.Employees.Find(id);
@@ -82,7 +81,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // POST: /Employees/Edit/5
-
+        [Authorize(Roles = "HR, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Employee employee)
@@ -99,7 +98,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Employees/Delete/5
-
+        [Authorize(Roles = "HR, Admin")]
         public ActionResult Delete(int id = 0)
         {
             Employee employee = db.Employees.Find(id);
@@ -113,7 +112,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // POST: /Employees/Delete/5
-
+        [Authorize(Roles = "HR, Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

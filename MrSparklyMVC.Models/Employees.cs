@@ -53,15 +53,5 @@ namespace MrSparklyMVC.Models
         [Required]
         [StringLength(60, MinimumLength=1)]
         public string employeeDepartment { get; set; }
-
-        [Display(Name="Username")]
-        [Required]
-        [StringLength(20, MinimumLength=6)]
-        public string employeeUsername { get; set; }
-
-        [Display(Name="Password")]
-        [Required]
-        [StringLength(50, MinimumLength=8)]
-        public string employeePassword { get; set; }
     }
 }

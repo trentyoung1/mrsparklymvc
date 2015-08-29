@@ -10,6 +10,7 @@ using NLog;
 
 namespace MrSparklyMVC.Controllers
 {
+    [Authorize(Roles = "Purchasing, Admin")]
     public class RawMaterialsController : Controller
     {
         private MrSparklyEntities db = new MrSparklyEntities();

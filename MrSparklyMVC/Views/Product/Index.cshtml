@@ -5,11 +5,6 @@
 }
 
 <h2>Products</h2>
-@{ if (TempData["Msg"] != "") 
-   {
-       <p>@TempData["Msg"]</p>
-   }
-}
 
 <p>
     @Html.ActionLink("Add New Product", "Create")

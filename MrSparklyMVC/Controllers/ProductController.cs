@@ -117,7 +117,6 @@ namespace MrSparklyMVC.Controllers
                         count++;
                         productLine = sr.ReadLine();
                     }
-                    TempData["Msg"] = count.ToString() + " Products Successfully Created!";
                     return RedirectToAction("Index");
                 }
             }

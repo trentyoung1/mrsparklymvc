@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC.Models", "MrSp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC.Service", "MrSparklyMVC.Service\MrSparklyMVC.Service.csproj", "{CDBE481E-CE28-41CF-A609-FC941B3EDA39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrSparklyMVC.Logger", "MrSparklyMVC.Logger\MrSparklyMVC.Logger.csproj", "{0CB61E78-81AC-49AE-9447-FAF183BC951B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CDBE481E-CE28-41CF-A609-FC941B3EDA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDBE481E-CE28-41CF-A609-FC941B3EDA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDBE481E-CE28-41CF-A609-FC941B3EDA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB61E78-81AC-49AE-9447-FAF183BC951B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB61E78-81AC-49AE-9447-FAF183BC951B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB61E78-81AC-49AE-9447-FAF183BC951B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB61E78-81AC-49AE-9447-FAF183BC951B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

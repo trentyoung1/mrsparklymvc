@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using MrSparklyMVC.Models;
 using NLog;
 using System.IO;
+using System.Diagnostics;
 
 namespace MrSparklyMVC.Controllers
 {
@@ -90,9 +91,15 @@ namespace MrSparklyMVC.Controllers
         {
             HttpPostedFileBase file = Request.Files[0];
 
+            // if the file is not the products.csv file, warn that its not the demo file
+            Debug.Assert(file.FileName == "products.csv", "Not using the demo file");
+
             //ensure file is not empty
             if (file != null && file.ContentLength > 0)
             {
+
+                Debug.Print("Reading in the contents of the file");
+
                 //ensure file is csv
                 if (file.ContentType == "text/csv" || file.ContentType == "application/vnd.ms-excel")
                 {

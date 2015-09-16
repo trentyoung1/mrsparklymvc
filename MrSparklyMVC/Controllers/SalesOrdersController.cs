@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using MrSparklyMVC.Models;
 using NLog;
+using PagedList;
 
 namespace MrSparklyMVC.Controllers
 {
@@ -19,10 +20,14 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var salesorders = db.SalesOrders.Include(s => s.Retailer);
-            return View(salesorders.ToList());
+            int pageSize = 5;
+            salesorders = salesorders.OrderBy(s => s.salesOrderID);
+            int pageNumber = (page ?? 1);
+
+            return View(salesorders.ToPagedList(pageNumber, pageSize));
         }
 
         //

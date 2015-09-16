@@ -1,7 +1,9 @@
-﻿@model IEnumerable<MrSparklyMVC.Models.SalesOrder>
-
+﻿@using PagedList.Mvc;
+@model IEnumerable<MrSparklyMVC.Models.SalesOrder>
+           <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Sales Orders Index";
+    var pList = (PagedList.IPagedList<MrSparklyMVC.Models.SalesOrder>)Model;
 }
 
 <h2>Sales Orders</h2>
@@ -12,7 +14,7 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Retailer.retailerName)
+            @Html.DisplayNameFor((model => model.Retailer.retailerName))
         </th>
         <th>
             @Html.DisplayNameFor(model => model.salesOrderNo)
@@ -23,7 +25,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in pList) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Retailer.retailerName)
@@ -41,5 +43,7 @@
         </td>
     </tr>
 }
-
 </table>
+<br />
+Page @(pList.PageCount < pList.PageNumber ? 0 : pList.PageNumber) of @pList.PageCount
+@Html.PagedListPager(pList, page => Url.Action("Index", new { page}))

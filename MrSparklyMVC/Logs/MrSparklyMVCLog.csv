@@ -5,3 +5,4 @@ DateTime,Level,Logger,Message,Callsite,Exception,Solution
 27/08/2015 20:08,ERROR,MrSparklyMVC.Controllers.EmployeesController,Invalid ID (id=0),MrSparklyMVC.Controllers.EmployeesController.Edit,,"Incorrect Number of parameters passed to html.actionlink method, added null object for htmlattributes parameter."
 27/08/2015 21:13,ERROR,MrSparklyMVC.Controllers.ProductController,Invalid Product ID (id=0),MrSparklyMVC.Controllers.ProductController.GetProductPrice,,error in javascript code
 22:49.5,ERROR,MrSparklyMVC.Controllers.SalesOrdersController,The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.,MrSparklyMVC.Controllers.SalesOrdersController.Index,,"need to order the results, add .orderby statement"
+2015-10-01 13:14:31.1916,ERROR,MrSparklyMVC.Controllers.ProductController,Invalid Product ID (id=0),MrSparklyMVC.Controllers.ProductController.GetProductPrice,

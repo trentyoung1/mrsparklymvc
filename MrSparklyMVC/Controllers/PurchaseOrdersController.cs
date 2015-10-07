@@ -36,6 +36,16 @@ namespace MrSparklyMVC.Controllers
                 logger.Error("Invalid ID (id={0})", id);
                 return HttpNotFound();
             }
+
+            decimal orderTotal = 0;
+
+            foreach (var orderLine in purchaseorder.PurchaseOrderLines)
+            {
+                orderTotal += (decimal)orderLine.purchaseOrderLineSubtotal;
+            }
+
+            ViewBag.orderTotal = orderTotal;
+
             return View(purchaseorder);
         }
 

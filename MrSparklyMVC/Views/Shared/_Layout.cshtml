@@ -6,13 +6,17 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Mr Sparkly", "Index", "Home")</p>
+                   <!-- <p class="site-title">@Html.ActionLink("Mr Sparkly", "Index", "Home")</p> -->
+                    <canvas id="titleCanvas" width="200" height="50">
+
+                    </canvas>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -49,8 +53,37 @@
             </div>
         </footer>
 
-                @Scripts.Render("~/bundles/jquery")
-        <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+                
         @RenderSection("scripts", required: false)
+
+        <script>
+            var canvas = document.getElementById("titleCanvas");
+            var ctx = canvas.getContext("2d");
+            var x = 5;
+
+            function drawLine() {
+                requestAnimationFrame(drawLine);
+
+                if (x < 150) {
+                    
+                    ctx.strokeStyle = "#FF0000";
+                    ctx.moveTo(x, 42);
+                    x = x + 2;
+                    ctx.lineTo(x, 42);
+                    ctx.stroke();
+                }
+            }
+            drawLine();
+            drawText();
+
+            function drawText() {
+                ctx.font = "2.3em Rockwell"
+                var txt = "Mr Sparkly";
+                ctx.fillText(txt, 5, 40);
+            }
+
+            
+
+        </script>
     </body>
 </html>

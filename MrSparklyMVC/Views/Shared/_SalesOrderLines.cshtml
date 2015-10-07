@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<MrSparklyMVC.Models.SalesOrderLine>
            @{
                var orderID = ViewBag.orderID;
+               decimal orderTotal = ViewBag.orderTotal;
            }
 <div id="content">
 <table>
@@ -40,6 +41,16 @@
         </td>
     </tr>
 }
+    <tr>
+        <td>
+            <h3>Order Total</h3>
+        </td>
+        <td><h3></h3></td>
+        <td></td>
+        <td>
+            <h3 id="total">$@String.Format("{0:n2}", orderTotal)</h3>
+        </td>
+    </tr>
 
 </table>
     </div>

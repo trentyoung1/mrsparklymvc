@@ -40,6 +40,15 @@ namespace MrSparklyMVC.Controllers
             {
                 return HttpNotFound();
             }
+
+            decimal orderTotal = 0;
+
+            foreach (var orderLine in salesorder.SalesOrderLines)
+            {
+                orderTotal += (decimal)orderLine.salesOrderLinesSubtotal;
+            }
+
+            ViewBag.orderTotal = orderTotal;
             return View(salesorder);
         }
 

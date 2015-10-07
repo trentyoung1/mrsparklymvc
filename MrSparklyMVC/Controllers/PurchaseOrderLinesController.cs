@@ -81,8 +81,7 @@ namespace MrSparklyMVC.Controllers
         public ActionResult Edit(int id = 0)
         {
             PurchaseOrderLine purchaseorderline = db.PurchaseOrderLines.Find(id);
-            ViewBag.purchaseOrderID = new SelectList(db.PurchaseOrders, "purchaseOrderID", "purchaseOrderNo", purchaseorderline.purchaseOrderID);
-            ViewBag.rawMaterialsID = new SelectList(db.RawMaterials, "rawMaterialsID", "rawMaterialsName", purchaseorderline.rawMaterialsID);
+
             if (purchaseorderline == null)
             {
                 return HttpNotFound();

@@ -3,49 +3,90 @@
 @{
     ViewBag.Title = "Purchase Orders Index";
 }
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#helpModal').modal();
+    });
+</script>
 
 <h2>Purchase Orders</h2>
 
-<p>
-    @Html.ActionLink("Create New Order", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier.supplierName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.purchaseOrderNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.purchaseOrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.deliveryAddress)
-        </th>
-        <th></th>
-    </tr>
+<div class="help">
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#helpModal" data-remote="~/Help/HtmlPage1.html">Need Help?</button>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplier.supplierName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.purchaseOrderNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.purchaseOrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.deliveryAddress)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.purchaseOrderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.purchaseOrderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.purchaseOrderID })
-        </td>
-    </tr>
-}
+    <p>
+        @Html.ActionLink("Create New Order", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.supplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.purchaseOrderNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.purchaseOrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deliveryAddress)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.supplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purchaseOrderNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purchaseOrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deliveryAddress)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.purchaseOrderID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.purchaseOrderID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.purchaseOrderID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<div class="help">
+    <!-- Modal -->
+<div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Help - Purchase Orders</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Info</h3>
+                <p>The Purchase Orders page shows a list of purchase orders currently stored in the system, along with some basic information.</p>
+                <h3>Creating and Editing Orders</h3>
+                <p>To create a new Purchase Order, click the "Create New Order" link above the table, or to edit an exisiting order, click the "Edit" link beside the order you wish to edit.</p>
+                <h3>Viewing Order Details</h3>
+                <p>To see further details about an order, or to add, edit or delete order lines from the order, click the "Details" link beside the corresponding order.</p>
+                <h3>Deleting an order</h3>
+                <p>To delete an order from the system, click the "Delete" link associated with the order you wish to remove.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

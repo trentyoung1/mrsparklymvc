@@ -6,9 +6,18 @@
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#helpModal').modal();
+    });
+</script>
 
 <h2>Create</h2>
+
+<div class="help">
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#helpModal" data-remote="~/Help/HtmlPage1.html">Need Help?</button>
+</div>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -64,6 +73,35 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div class="help">
+    <!-- Modal -->
+    <div id="helpModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Help - Adding a Product</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Adding a New Product</h3>
+                    <p>To add a new product, enter the brand name in the form provided, along with the rest of the product details into the corresponding sections of the form, and click the "Create" button at the end of the form.</p>
+                    <p>To cancel adding a new product and return to the products index page, click the "Back To List" link at the bottom of the page.</p>
+                    <h3>Adding Products Using Drag and Drop</h3>
+                    <p>To add multiple products into the system at once, drag and drop into the box provided on the page, a .csv file containing a list of the products and their details in the format of Product Name, Cost Price, Retail Price, Quantity, as described in the example below:</p>
+                    <p><b>TestProduct,10.00,11.00,50</b></p>
+                    <p>The file must be in CSV format and less than 400kb in size.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 @section Scripts {

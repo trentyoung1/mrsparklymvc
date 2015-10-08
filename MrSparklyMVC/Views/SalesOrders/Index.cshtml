@@ -5,8 +5,18 @@
     ViewBag.Title = "Sales Orders Index";
     var pList = (PagedList.IPagedList<MrSparklyMVC.Models.SalesOrder>)Model;
 }
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#helpModal').modal();
+    });
+</script>
 
 <h2>Sales Orders</h2>
+
+<div class="help">
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#helpModal" data-remote="~/Help/HtmlPage1.html">Need Help?</button>
+</div>
 
 <p>
     @Html.ActionLink("Create New Order", "Create")
@@ -47,3 +57,33 @@
 <br />
 Page @(pList.PageCount < pList.PageNumber ? 0 : pList.PageNumber) of @pList.PageCount
 @Html.PagedListPager(pList, page => Url.Action("Index", new { page}))
+
+<div class="help">
+    <!-- Modal -->
+    <div id="helpModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Help - Sales Orders</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Info</h3>
+                    <p>The Sales Orders page shows a list of sales orders currently stored in the system, along with some basic information.</p>
+                    <h3>Creating and Editing Orders</h3>
+                    <p>To create a new Sales Order, click the "Create New Order" link above the table, or to edit an exisiting order, click the "Edit" link beside the order you wish to edit.</p>
+                    <h3>Viewing Order Details</h3>
+                    <p>To see further details about an order, or to add, edit or delete order lines from the order, click the "Details" link beside the corresponding order.</p>
+                    <h3>Deleting an order</h3>
+                    <p>To delete an order from the system, click the "Delete" link associated with the order you wish to remove.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -3,8 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#helpModal').modal();
+    });
+</script>
 
 <h2>Employees</h2>
+
+<div class="help">
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#helpModal" data-remote="~/Help/HtmlPage1.html">Need Help?</button>
+</div>
 
 <p>
     @if (Roles.IsUserInRole("HR") || Roles.IsUserInRole("Admin"))
@@ -69,3 +79,33 @@
 }
 
 </table>
+
+<div class="help">
+    <!-- Modal -->
+    <div id="helpModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Help - Employees</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Info</h3>
+                    <p>The Employees page shows a list of employees currently stored in the system, along with some basic information.</p>
+                    <h3>Adding and Editing Employees</h3>
+                    <p>To add a new employee to the system, click the "Add New Employee" link above the table, or to edit an exisiting employee, click the "Edit" link beside the employee you wish to edit.</p>
+                    <h3>Viewing Employee Details</h3>
+                    <p>To see further details about an employee, or to edit or delete retailers assigned to that employee, click the "Details" link beside the corresponding employee.</p>
+                    <h3>Deleting an employee</h3>
+                    <p>To delete an employee from the system, click the "Delete" link associated with the employee you wish to remove.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

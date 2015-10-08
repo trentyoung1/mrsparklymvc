@@ -4,8 +4,18 @@
     ViewBag.Title = "Details";
     IEnumerable<MrSparklyMVC.Models.Retailer> retailers = Model.Retailers;
 }
+<script src="~/Scripts/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#helpModal').modal();
+    });
+</script>
 
 <h2>Employee Details</h2>
+
+<div class="help">
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#helpModal" data-remote="~/Help/HtmlPage1.html">Need Help?</button>
+</div>
 
 <fieldset>
     <legend>Employee</legend>
@@ -81,3 +91,31 @@
     @Html.ActionLink("Edit Employee", "Edit", new { id=Model.employeeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<div class="help">
+    <!-- Modal -->
+    <div id="helpModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Help - Employee Details</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Info</h3>
+                    <p>The employee details page shows employee information, as well as a list of retailers assigned to the employee.</p>
+                    <h3>Editing Assigned Retailers</h3>
+                    <p>To edit the details of an assigned retailer, click the "Edit" link beside the retailer you wish to edit.</p>
+                    <h3>Other Options</h3>
+                    <p>The employees details can be edited by clicking on the "Edit Employee" link at the bottom of the page, or to return to the employee index page, click on the "Back to List" link, also located at the bottom of the page.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

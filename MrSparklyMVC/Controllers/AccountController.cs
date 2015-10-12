@@ -25,6 +25,7 @@ namespace MrSparklyMVC.Controllers
         // GET: /Account/Login
 
         [AllowAnonymous]
+        [MVCUrl("/Account/Login")]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -65,6 +66,7 @@ namespace MrSparklyMVC.Controllers
         // GET: /Account/Register
 
         [AllowAnonymous]
+        [MVCUrl("/Account/Register")]
         public ActionResult Register()
         {
             return View();
@@ -129,6 +131,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /Account/Manage
 
+        [MVCUrl("/Account/Manage")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -298,6 +301,7 @@ namespace MrSparklyMVC.Controllers
         // GET: /Account/ExternalLoginFailure
 
         [AllowAnonymous]
+        [MVCUrl("/Account/ExternalLoginFailure")]
         public ActionResult ExternalLoginFailure()
         {
             return View();

@@ -18,7 +18,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /PurchaseOrderLines/
-
+        [MVCUrl("/PurchaseOrderLines")]
         public ActionResult Index()
         {
             var purchaseorderlines = db.PurchaseOrderLines.Include(p => p.PurchaseOrder).Include(p => p.RawMaterial);
@@ -27,7 +27,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /PurchaseOrderLines/Details/5
-
+        [MVCUrl("/PurchaseOrderLines/Details")]
         public ActionResult Details(int id = 0)
         {
             PurchaseOrderLine purchaseorderline = db.PurchaseOrderLines.Find(id);
@@ -40,7 +40,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /PurchaseOrderLines/Create
-
+        [MVCUrl("/PurchaseOrderLines/Create")]
         public ActionResult Create(int id = 0)
         {
             ViewBag.purchaseOrderID = new SelectList(db.PurchaseOrders, "purchaseOrderID", "purchaseOrderNo");
@@ -77,7 +77,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /PurchaseOrderLines/Edit/5
-
+        [MVCUrl("/PurchaseOrderLines/Edit")]
         public ActionResult Edit(int id = 0)
         {
             PurchaseOrderLine purchaseorderline = db.PurchaseOrderLines.Find(id);
@@ -118,7 +118,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /PurchaseOrderLines/Delete/5
-
+        [MVCUrl("/PurchaseOrderLines/Delete")]
         public ActionResult Delete(int id = 0)
         {
             PurchaseOrderLine purchaseorderline = db.PurchaseOrderLines.Find(id);

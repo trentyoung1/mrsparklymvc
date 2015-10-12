@@ -20,6 +20,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/
 
+        [MVCUrl("/SalesOrders")]
         public ActionResult Index(int? page)
         {
             var salesorders = db.SalesOrders.Include(s => s.Retailer);
@@ -33,6 +34,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/Details/5
 
+        [MVCUrl("/SalesOrders/Details")]
         public ActionResult Details(int id = 0)
         {
             SalesOrder salesorder = db.SalesOrders.Find(id);
@@ -55,6 +57,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/Create
 
+        [MVCUrl("/SalesOrders/Create")]
         public ActionResult Create()
         {
             ViewBag.retailerID = new SelectList(db.Retailers, "retailerID", "retailerName");
@@ -82,6 +85,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/Edit/5
 
+        [MVCUrl("/SalesOrders/Edit")]
         public ActionResult Edit(int id = 0)
         {
 
@@ -114,6 +118,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /SalesOrders/Delete/5
 
+        [MVCUrl("/SalesOrders/Delete")]
         public ActionResult Delete(int id = 0)
         {
             SalesOrder salesorder = db.SalesOrders.Find(id);

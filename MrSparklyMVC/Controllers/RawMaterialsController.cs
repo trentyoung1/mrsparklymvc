@@ -18,7 +18,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /RawMaterials/
-
+        [MVCUrl("/RawMaterials")]
         public ActionResult Index()
         {
             return View(db.RawMaterials.ToList());
@@ -27,6 +27,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /RawMaterials/Details/5
 
+        [MVCUrl("/RawMaterials/Details")]
         public ActionResult Details(int id = 0)
         {
             RawMaterial rawmaterial = db.RawMaterials.Find(id);
@@ -57,7 +58,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /RawMaterials/Create
-
+        [MVCUrl("/RawMaterials/Create")]
         public ActionResult Create()
         {
             return View();
@@ -83,6 +84,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /RawMaterials/Edit/5
 
+        [MVCUrl("/RawMaterials/Edit")]
         public ActionResult Edit(int id = 0)
         {
             RawMaterial rawmaterial = db.RawMaterials.Find(id);
@@ -112,6 +114,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /RawMaterials/Delete/5
 
+        [MVCUrl("/RawMaterials/Delete")]
         public ActionResult Delete(int id = 0)
         {
             RawMaterial rawmaterial = db.RawMaterials.Find(id);

@@ -21,6 +21,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /Product/
 
+        [MVCUrl("/Product")]
         public ActionResult Index()
         {
             return View(db.Products.ToList());
@@ -29,6 +30,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /Product/Details/5
 
+        [MVCUrl("/Product/Details")]
         public ActionResult Details(int id = 0)
         {
             Product product = db.Products.Find(id);
@@ -61,6 +63,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /Product/Create
 
+        [MVCUrl("/Product/Create")]
         public ActionResult Create()
         {
             return View();
@@ -133,7 +136,7 @@ namespace MrSparklyMVC.Controllers
 
         //
         // GET: /Product/Edit/5
-
+        [MVCUrl("/Product/Edit")]
         public ActionResult Edit(int id = 0)
         {
             Product product = db.Products.Find(id);
@@ -164,6 +167,7 @@ namespace MrSparklyMVC.Controllers
         //
         // GET: /Product/Delete/5
 
+        [MVCUrl("/Product/Delete")]
         public ActionResult Delete(int id = 0)
         {
             Product product = db.Products.Find(id);

@@ -11,7 +11,7 @@ namespace MrSparklyMVC
     /// </summary>
     public class SiteMapCreator
     {
-        List<string> urls;
+        public List<string> urls {get; set;}
 
         //constructor
         public SiteMapCreator()

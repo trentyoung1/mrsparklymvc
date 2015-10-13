@@ -45,7 +45,7 @@ namespace MrSparklyMVC.Controllers
         /// dynamically generates an xml sitemap using reflection
         /// </summary>
         /// <returns></returns>
-        [MVCUrl("/Home/SiteMap")]
+        [MVCUrl("/SiteMap")]
         public ActionResult SiteMap()
         {
             //a list to hold all the urls

@@ -22,13 +22,5 @@ namespace MrSparklyMVC
         {
             this.Url = url;
         }
-
-        public override void OnResultExecuting(ResultExecutingContext filterContext)
-        {
-            string fullyQualifiedUrl = filterContext.HttpContext.Request.Url.GetLeftPart(UriPartial.Authority) + this.Url;
-
-            filterContext.Controller.ViewData["CanonicalUrl"] = @"<link rel=""canonical"" href=""" + fullyQualifiedUrl + " />";
-            base.OnResultExecuting(filterContext);
-        }
     }
 }
